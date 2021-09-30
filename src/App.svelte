@@ -4,6 +4,11 @@
 		{name: 'Sudhanshu', beltColor: 'orange', age: 26, id: 2},
 		{name: 'Prabh', beltColor: 'brown', age: 25, id: 3}
 	];
+
+	const handleCLick = (id) => {
+		people = people.filter((person) => person.id != id);
+	}
+
 </script>
 
 <main>
@@ -11,6 +16,7 @@
 		<div>
 			<h4>{person.name}</h4>
 			<p>{person.age} years old, {person.beltColor} belt.</p>
+			<button on:click={() => handleCLick(person.id) }>Delete</button>
 		</div>
 		{:else}
 			<p>There are no people to show..</p>
