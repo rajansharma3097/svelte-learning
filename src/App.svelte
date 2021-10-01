@@ -1,5 +1,12 @@
 <script>
 	import Modal from './Modal.svelte';
+
+	let showModal = false;
+
+	const toggleModal = () => {
+		showModal = !showModal;
+	}
+
 	let people = [
 		{name: 'RJay', beltColor: 'black', age: 24, id: 1},
 		{name: 'Sudhanshu', beltColor: 'orange', age: 26, id: 2},
@@ -18,8 +25,9 @@
 
 </script>
 
-<Modal message={message}/>
+<Modal message={message} {showModal} on:click={toggleModal}/>
 <main>
+	<button on:click|once={toggleModal}>Open Modal</button>
 	{#each people as person (person.id)}
 		<div>
 			<h4>{person.name}</h4>
