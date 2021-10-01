@@ -10,9 +10,15 @@
 		people = people.filter((person) => person.id != id);
 	}
 
+	setTimeout(() => {
+		message = "Value Changed!!!!";
+	}, 5000);
+
+	let message = "Hey, I'm a prop value.";
+
 </script>
 
-<Modal />
+<Modal message={message}/>
 <main>
 	{#each people as person (person.id)}
 		<div>
