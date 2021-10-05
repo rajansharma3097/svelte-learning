@@ -24,11 +24,18 @@
 
 	let message = "Hey, I'm a prop value.";
 
+	const addPerson = (e) => {
+		// console.log(e.detail);
+		const person = e.detail;
+		people = [person, ...people];
+		toggleModal();
+	};
+
 </script>
 
 <Modal {showModal} on:click={toggleModal}>
 	<h3>Add a New Person</h3>
-	<AddPersonForm />
+	<AddPersonForm on:addPerson={addPerson} />
 </Modal>
 <main>
 	<!-- <button on:click|once={toggleModal}>Open Modal</button> -->
